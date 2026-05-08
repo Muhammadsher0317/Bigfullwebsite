@@ -1,0 +1,100 @@
+.loginentrance .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80px 0px;
+}
+.logiinleft {
+  width: 50%;
+}
+.logiinleft img {
+  width: 100%;
+}
+.loginright {
+  width: 45%;
+  padding: 0px 50px;
+  height: 400px;
+}
+
+.loginright h1 {
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 36px;
+  line-height: 30px;
+  letter-spacing: 4%;
+  color: #000000;
+}
+.loginright p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  padding: 10px 0px;
+}
+.name {
+  width: 300px;
+  padding: 5px 0px;
+  border-bottom: 1px solid #000000;
+}
+.name input {
+  width: 100%;
+  height: 30px;
+  border: none;
+  padding-left: 20px;
+  outline: none;
+}
+.creationaccount {
+  width: 371px;
+  height: 56px;
+  border-radius: 4px;
+  background-color: #db4444;
+  border: none;
+  margin: 20px auto;
+  font-weight: 500;
+  font-style: Medium;
+  width: 300px;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  color: #fafafa;
+}
+
+.iconswithimg {
+  width: 371px;
+  height: 56px;
+  border-radius: 4px;
+  background-color: transparent;
+  border: none;
+  font-weight: 400;
+  font-style: Medium;
+  width: 300px;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #000000;
+  border: 1px solid #00000066;
+}
+.entranceaccoutn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  gap: 10px;
+  margin-top: 20px;
+}
+.entranceaccoutn p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  color: #000000;
+}
+.entranceaccoutn button{
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+}

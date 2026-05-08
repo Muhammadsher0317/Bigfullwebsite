@@ -1,0 +1,26 @@
+.mySwiperpkpjasd {
+  width: 100%;
+  padding: 10px 4px 30px !important;
+}
+
+.mySwiperpkpjasd .swiper-slide {
+  height: auto;
+  display: flex;
+  align-items: stretch;
+}
+
+.onebox {
+  background: transparent;
+}
+
+/* Fix swiper-slide img override */
+.mySwiperpkpjasd .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  margin: 0;
+}
+
+.swiper-pagination-bullet-active {
+  background: #db4444 !important;
+}

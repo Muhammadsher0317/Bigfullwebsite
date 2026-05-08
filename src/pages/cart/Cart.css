@@ -1,0 +1,260 @@
+.cart {
+  min-height: 100vh;
+  padding-bottom: 60px;
+}
+
+.carttop {
+  padding: 20px 0 16px;
+}
+.carttop p { font-size: 14px; color: #808080; }
+.carttop span { color: #000; font-weight: 500; }
+
+/* ── Shared grid: 5 columns ── */
+.cart-header,
+.cards_row {
+  display: grid;
+  grid-template-columns: 2.5fr 1fr 1.4fr 1fr 40px;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 24px;
+}
+
+/* ── Header ── */
+.cart-header {
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 1px 10px rgba(0,0,0,0.07);
+  margin-bottom: 12px;
+}
+.cart-header span {
+  font-weight: 500;
+  font-size: 15px;
+  color: #000;
+}
+.ch-product { text-align: left; }
+.ch-price,
+.ch-qty,
+.ch-sub  { text-align: center; }
+.ch-del  { text-align: center; }
+
+/* ── Cards wrapper ── */
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+/* ── Single row ── */
+.cards_row {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.07);
+  transition: box-shadow 0.2s;
+}
+.cards_row:hover {
+  box-shadow: 0 4px 22px rgba(0,0,0,0.12);
+}
+
+/* Product cell */
+.cr-product {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.cr-product img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 6px;
+  background: #f5f5f5;
+  padding: 4px;
+  flex-shrink: 0;
+}
+.cr-product span {
+  font-size: 14px;
+  font-weight: 400;
+  color: #000;
+  line-height: 1.4;
+}
+
+/* Price cell */
+.cr-price {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 400;
+  color: #000;
+}
+
+/* Quantity cell */
+.cr-qty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 6px;
+  overflow: hidden;
+  width: fit-content;
+  margin: 0 auto;
+}
+.qty-btn {
+  width: 32px;
+  height: 36px;
+  background: #f5f5f5;
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+  transition: background 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.qty-btn:hover { background: #e0e0e0; }
+
+.qty-input {
+  width: 48px;
+  height: 36px;
+  border: none;
+  border-left: 1.5px solid #e0e0e0;
+  border-right: 1.5px solid #e0e0e0;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+  color: #000;
+  outline: none;
+  -moz-appearance: textfield;
+}
+.qty-input::-webkit-outer-spin-button,
+.qty-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Subtotal cell */
+.cr-sub {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  color: #db4444;
+}
+
+/* Remove button */
+.cr-del {
+  background: none;
+  border: none;
+  color: #bbb;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 4px 6px;
+  transition: color 0.2s, background 0.2s;
+  justify-self: center;
+}
+.cr-del:hover {
+  color: #db4444;
+  background: #fff0f0;
+}
+
+/* ── Bottom buttons ── */
+.cardsbtns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 0;
+}
+.cardsbtns button {
+  width: 200px;
+  height: 50px;
+  border-radius: 4px;
+  border: 1.5px solid rgba(0,0,0,0.35);
+  background: transparent;
+  font-weight: 500;
+  font-size: 15px;
+  color: #000;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.cardsbtns button:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* ── Coupon + Total ── */
+.cuponslar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.cuponslar .couponleft {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.cuponslar .couponleft input {
+  width: 260px;
+  height: 50px;
+  border-radius: 4px;
+  border: 1.5px solid #000;
+  padding-left: 16px;
+  font-size: 15px;
+  outline: none;
+}
+.cuponslar .couponleft button {
+  width: 170px;
+  height: 50px;
+  border-radius: 4px;
+  border: none;
+  color: #fafafa;
+  background-color: #db4444;
+  font-weight: 500;
+  font-size: 15px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.cuponslar .couponleft button:hover { opacity: 0.85; }
+
+.coupenright {
+  width: 420px;
+  border-radius: 8px;
+  border: 1.5px solid #e0e0e0;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+.coupenright h1 {
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 16px;
+  color: #000;
+}
+.subtotal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+.subtotal h2 { font-weight: 400; font-size: 15px; color: #555; }
+.subtotal span { font-weight: 600; font-size: 15px; color: #000; }
+
+.checkoutout button {
+  width: 100%;
+  height: 50px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  background-color: #db4444;
+  border: none;
+  font-weight: 500;
+  font-size: 16px;
+  color: #fafafa;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.checkoutout button:hover { opacity: 0.88; }

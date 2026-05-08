@@ -1,0 +1,82 @@
+/* Same card style as Sliderboxs */
+.sliderboxs {
+  width: 100%;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  overflow: hidden;
+  transition: box-shadow 0.25s, transform 0.25s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+.sliderboxs:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+  transform: translateY(-4px);
+}
+.sliderboxtop {
+  width: 100%;
+  height: 240px;
+  background: #f5f5f5;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.clasterimgslar {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 12px;
+  background: #f5f5f5;
+  transition: transform 0.3s;
+}
+.sliderboxs:hover .clasterimgslar { transform: scale(1.05); }
+
+.addtocars {
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%; height: 42px;
+  background: #000; color: #fff;
+  border: none; font-size: 14px; font-weight: 500;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  cursor: pointer;
+  opacity: 0; transform: translateY(100%);
+  transition: opacity 0.25s, transform 0.25s;
+  z-index: 10;
+}
+.sliderboxtop:hover .addtocars { opacity: 1; transform: translateY(0); }
+.addtocars:hover { background: #db4444; }
+
+.rotateplace {
+  position: absolute; top: 10px; right: 10px;
+  z-index: 20; display: flex; flex-direction: column; gap: 6px;
+}
+.rotetarte {
+  width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%; background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  cursor: pointer; transition: background 0.2s, color 0.2s;
+}
+.rotetarte:hover { background: #db4444; color: #fff; }
+.rotetarte svg { width: 16px; height: 16px; }
+
+.sliderbottom { padding: 10px 12px 14px; }
+.titleslar h2 {
+  font-weight: 500; font-size: 14px; line-height: 20px; color: #000;
+  margin-bottom: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.ratingsx {
+  display: flex; align-items: center;
+  justify-content: space-between; flex-wrap: wrap; gap: 4px;
+}
+.boxnarlari { display: flex; align-items: center; gap: 6px; }
+.cuurentprice { font-weight: 600; font-size: 14px; color: #db4444; }
+.pastproce { font-size: 12px; color: #aaa; text-decoration: line-through; }
+.starlsaerda { display: flex; align-items: center; gap: 3px; }
+.stars { display: flex; align-items: center; }
+.stars svg { width: 13px; height: 13px; color: #ffd700; }
+.p { font-size: 11px; color: #888; font-weight: 500; }

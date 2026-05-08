@@ -1,0 +1,155 @@
+.acountslar .container {
+ padding: 30px 0px;
+}
+.acoounttop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 0px;
+}
+.myaccountslar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: 0%;
+  color: rgba(0, 0, 0, 0.571);
+}
+.myaccountslar span {
+  color: rgba(0, 0, 0, 1);
+}
+.acoounttop h1 {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: 0%;
+  color: rgba(0, 0, 0, 1);
+}
+.acoounttop h1 span {
+  color: rgba(219, 68, 68, 1);
+}
+.myaccountmidd {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.myaccounlefts h1 {
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  color: rgba(0, 0, 0, 1);
+  padding: 10px 0px;
+}
+.servie_accounts {
+  width: 200px;
+}
+.servie_accounts h3 {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  color: rgba(0, 0, 0, 1);
+  text-align: left;
+  margin-left: 30px;
+}
+.servie_accounts h3:hover {
+  color: rgba(219, 68, 68, 1);
+}
+.myaccountmidd .myaccounlefts {
+  width: 30%;
+}
+.myaccountmidd .myaccounright {
+  width: 70%;
+}
+.myaccounright {
+  padding: 50px;
+  box-shadow: 0px 1px 13px 0px rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 1);
+}
+.myaccounright .editlarright {
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 20px;
+  line-height: 28px;
+  margin-bottom: 20px;
+  letter-spacing: 0%;
+  color: rgba(219, 68, 68, 1);
+}
+
+.firstandlastnames {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0px;
+}
+.firstnames {
+  width: 45%;
+}
+.firstnames h2 {
+  font-weight: 400;
+  font-size: 16px;
+  margin-bottom: 5px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  color: rgba(0, 0, 0, 1);
+}
+.firstnames input {
+  width: 330px;
+  height: 50px;
+  padding-left: 20px;
+  outline: none;
+  border-radius: 4px;
+  background-color: rgba(245, 245, 245, 1);
+  border: none;
+}
+.paswordchanges h2 {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  color: rgba(0, 0, 0, 1);
+}
+.currenpaswords {
+  padding: 10px 0px;
+}
+.currenpaswords input {
+  width: 710px;
+  padding-left: 20px;
+  height: 50px;
+  outline: none;
+  border: none;
+  background: rgba(245, 245, 245, 1);
+}
+.myacccountrightbtns {
+  display: flex;
+  align-items: center;
+  padding: 20px 0px;
+  justify-content: end;
+  gap: 10px;
+}
+.myacccountrightbtns button:nth-child(1) {
+  background: transparent;
+  border: none;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0%;
+  color: rgba(0, 0, 0, 1);
+}
+.myacccountrightbtns button:nth-child(2) {
+  width: 214px;
+  height: 56px;
+  border-radius: 4px;
+  background-color: rgba(219, 68, 68, 1);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  border: none;
+  color: white;
+  letter-spacing: 0%;
+}
