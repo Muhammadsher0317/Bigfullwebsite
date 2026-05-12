@@ -6,7 +6,8 @@ import { FaUser } from "react-icons/fa";
 import { FaBagShopping } from "react-icons/fa6";
 import { MdOutlineCancel } from "react-icons/md";
 import { IoStarOutline } from "react-icons/io5";
-import { DataContext } from "../../App";
+import { DataContext } from "../../context/DataContext";
+
 
 function Navbar() {
   const [modal, setmodal] = useState(false);

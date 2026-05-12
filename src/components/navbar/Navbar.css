@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;800;900&display=swap);
 .rows {
   display: flex;
   align-items: center;
@@ -11,6 +12,7 @@
   justify-content: center;
   margin: 0 auto;
   font-weight: 400;
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
   line-height: 21px;
   letter-spacing: 0%;

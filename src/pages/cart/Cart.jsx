@@ -1,15 +1,32 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./Cart.css";
 import { Link } from "react-router-dom";
-import { getcartitems, removefromcart, addtocart } from "../../service";
-import { DataContext } from "../../App";
+import { getcartitems, removefromcart,  } from "../../service";
+
 import { toast } from "react-toastify";
+import { DataContext } from "../../context/DataContext";
 
 function Cart() {
   const { token, refreshCartCount } = useContext(DataContext);
   const [cartItems, setCartItems] = useState([]);
   const [quantities, setQuantities] = useState({});
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (!token) return;
+    
+    getcartitems(token).then((data) => {
+      const items = data?.cart_items || (Array.isArray(data) ? data : []);
+      setCartItems(items);
+      // har bir item uchun quantity state ni set qilamiz
+      const qMap = {};
+      items.forEach((item, i) => {
+        qMap[i] = item?.quantity || 1;
+      });
+      setQuantities(qMap);
+      setLoading(false);
+    });
+  }, [token]);
 
   const fetchCart = () => {
     if (!token) {
@@ -29,13 +46,9 @@ function Cart() {
     });
   };
 
-  useEffect(() => {
-    fetchCart();
-  }, [token]);
-
   const handleRemove = (cartItemId) => {
     if (!token) return;
-    removefromcart(token, cartItemId).then((data) => {
+    removefromcart(token, cartItemId).then(() => {
       toast.success("O'chirildi");
       refreshCartCount();
       fetchCart();

@@ -1,8 +1,9 @@
 import React, { useContext, useState } from "react";
 import "./Modalsecond.css";
 import { baseUrl, addtocart } from "../../service";
-import { DataContext } from "../../App";
+
 import { toast } from "react-toastify";
+import { DataContext } from "../../context/DataContext";
 
 function Modalsecond({ item, setsliderbuton }) {
   const { token, refreshCartCount } = useContext(DataContext);

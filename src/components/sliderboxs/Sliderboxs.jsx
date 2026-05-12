@@ -1,16 +1,19 @@
 import React, { useContext, useState } from "react";
 import { CiHeart } from "react-icons/ci";
+import { FaHeart } from "react-icons/fa";
 import { IoEyeOutline, IoStar } from "react-icons/io5";
 import "./Sliderboxs.css";
 import { baseUrl, addtocart, addtowishlist } from "../../service";
 import { Link } from "react-router-dom";
-import { DataContext } from "../../App";
+
 import { toast } from "react-toastify";
+import { DataContext } from "../../context/DataContext";
 
 function Sliderboxs({ items }) {
   const { token, refreshCartCount } = useContext(DataContext);
   const [modalopen, setmodalopen] = useState(false);
   const [quantity, setQuantity] = useState(1);
+  const [isLiked, setIsLiked] = useState(false);
 
   const handleAddToCart = (e) => {
     e.preventDefault();
@@ -34,6 +37,7 @@ function Sliderboxs({ items }) {
       toast.error("Iltimos avval tizimga kiring!");
       return;
     }
+    setIsLiked(!isLiked);
     addtowishlist(token, items?.id).then(() => {
       toast.success("Wishlistga qo'shildi!");
     });
@@ -45,8 +49,8 @@ function Sliderboxs({ items }) {
         <div className="sliderboxs">
           <div className="sliderboxtop">
             <div className="rotateplace">
-              <div className="rotetarte" onClick={handleWishlist}>
-                <CiHeart />
+              <div className="rotetarte" onClick={handleWishlist} style={{ cursor: "pointer" }}>
+                {isLiked ? <FaHeart size={28} color="red" /> : <CiHeart size={28} color="black" />}
               </div>
               <div className="rotetarte">
                 <IoEyeOutline />
@@ -77,7 +81,11 @@ function Sliderboxs({ items }) {
               <div className="ratingsx">
                 <span>${items?.discount_price || items?.price}</span>
                 <div className="stars">
-                  <IoStar /><IoStar /><IoStar /><IoStar /><IoStar />
+                  <IoStar />
+                  <IoStar />
+                  <IoStar />
+                  <IoStar />
+                  <IoStar />
                 </div>
                 <div className="p">{items?.stars}</div>
               </div>
@@ -89,7 +97,9 @@ function Sliderboxs({ items }) {
       {modalopen && (
         <div className="modalslar" onClick={() => setmodalopen(false)}>
           <div className="modalinfo" onClick={(e) => e.stopPropagation()}>
-            <button className="closebtn" onClick={() => setmodalopen(false)}>X</button>
+            <button className="closebtn" onClick={() => setmodalopen(false)}>
+              X
+            </button>
 
             <div className="modalinfoleft">
               <img src={`${baseUrl}${items?.pictures?.[0]}`} alt="" />
@@ -112,15 +122,21 @@ function Sliderboxs({ items }) {
               <div className="sizes">
                 <h2>Size:</h2>
                 <div className="sizerow">
-                  <button>L</button><button>XL</button>
-                  <button>XXL</button><button>XXXL</button>
+                  <button>L</button>
+                  <button>XL</button>
+                  <button>XXL</button>
+                  <button>XXXL</button>
                 </div>
               </div>
 
               <div className="quantity">
                 <h2>Quantity:</h2>
                 <div className="quanitiyrow">
-                  <button onClick={() => quantity > 1 && setQuantity(quantity - 1)}>-</button>
+                  <button
+                    onClick={() => quantity > 1 && setQuantity(quantity - 1)}
+                  >
+                    -
+                  </button>
                   <span>{quantity}</span>
                   <button onClick={() => setQuantity(quantity + 1)}>+</button>
                 </div>

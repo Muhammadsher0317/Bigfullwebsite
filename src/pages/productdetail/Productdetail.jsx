@@ -1,12 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./Productdetail.css";
 import Flashslider from "../../components/flashslider/Flashslider";
-import { FaStar } from "react-icons/fa";
+import { FaStar, FaHeart } from "react-icons/fa";
 import { CiHeart } from "react-icons/ci";
 import { useParams } from "react-router-dom";
 import { baseUrl, getproductdetail, addtocart, addtowishlist } from "../../service";
-import { DataContext } from "../../App";
+
 import { toast } from "react-toastify";
+import { DataContext } from "../../context/DataContext";
 
 function Productdetail() {
   const { token, refreshCartCount } = useContext(DataContext);
@@ -14,6 +15,7 @@ function Productdetail() {
   const { id } = useParams();
   const [activeImg, setActiveImg] = useState(null);
   const [number, setnumber] = useState(1);
+  const [isLiked, setIsLiked] = useState(false);
 
   useEffect(() => {
     getproductdetail(id)?.then((item) => {
@@ -40,6 +42,7 @@ function Productdetail() {
       toast.error("Iltimos avval tizimga kiring!");
       return;
     }
+    setIsLiked(!isLiked);
     addtowishlist(token, info?.id).then(() => {
       toast.success("Wishlistga qo'shildi!");
     });
@@ -107,8 +110,8 @@ function Productdetail() {
               <button className="buyitemslarda" onClick={handleAddToCart}>
                 Buy Now
               </button>
-              <button className="hearticonslar" onClick={handleWishlist}>
-                <CiHeart />
+              <button className="hearticonslar" onClick={handleWishlist} style={{ border: "none", background: "transparent", cursor: "pointer", fontSize: "28px" }}>
+                {isLiked ? <FaHeart size={28} color="red" /> : <CiHeart size={28} color="black" />}
               </button>
             </div>
             <div className="freedelivered">

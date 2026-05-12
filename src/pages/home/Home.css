@@ -542,18 +542,17 @@
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 .phones:hover {
-  background: #db4444;
-  border-color: #db4444;
+  
   transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(219,68,68,0.25);
 }
-.phones:hover h2 { color: #fff; }
-.phones:hover img { filter: brightness(0) invert(1); }
+
+
 .phones img {
   width: 44px;
   height: 44px;
   object-fit: contain;
-  transition: filter 0.25s;
+
 }
 .phones h2 {
   font-weight: 500;

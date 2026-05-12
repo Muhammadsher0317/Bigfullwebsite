@@ -2,9 +2,10 @@ import React, { useContext, useState } from "react";
 import "./Register.css";
 import { loginfunction } from "../../service";
 import { useNavigate } from "react-router-dom";
-import { DataContext } from "../../App";
+
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { toast } from "react-toastify";
+import { DataContext } from "../../context/DataContext";
 
 function Register() {
   const [email, setEmail] = useState();

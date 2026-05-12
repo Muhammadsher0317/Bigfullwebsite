@@ -5,9 +5,10 @@ import "swiper/css/pagination";
 import "./Flashslider.css";
 import { FreeMode, Pagination } from "swiper/modules";
 import Cardslarone from "../carfdslar/Cardslarone";
-import { DataContext } from "../../App";
+
 import { useContext, useState } from "react";
 import Modalsecond from "../modalsseconds/Modalsecond";
+import { DataContext } from "../../context/DataContext";
 
 function Flashslider({ fleshslidershow }) {
   const { productData } = useContext(DataContext);

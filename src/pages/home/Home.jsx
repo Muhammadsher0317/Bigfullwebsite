@@ -5,7 +5,9 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import Sliderboxs from "../../components/sliderboxs/Sliderboxs";
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import Flashslider from "../../components/flashslider/Flashslider";
-import { DataContext } from "../../App";
+import { DataContext } from "../../context/DataContext";
+import { Link } from "react-router-dom";
+
 function Home() {
   const { categoryData } = useContext(DataContext);
   const { productData } = useContext(DataContext);
@@ -18,10 +20,10 @@ function Home() {
           <div className="homentrance_left">
             {categoryData?.map((item, index) => {
               return (
-                <div key={index} className="titlewithimg">
+                <Link key={index} to={`/category/${item?.id}`} className="titlewithimg">
                   <img src={item?.image} alt="" />
                   <p>{item?.title}</p>
-                </div>
+                </Link>
               );
             })}
           </div>
@@ -110,10 +112,10 @@ function Home() {
           <div className="category-track">
             {/* ikki marta takrorlaymiz — uzluksiz loop uchun */}
             {[...(categoryData || []), ...(categoryData || [])].map((item, index) => (
-              <div className="phones" key={index}>
+              <Link key={index} to={`/category/${item?.id}`} className="phones">
                 <img src={item?.image} alt={item?.title} />
                 <h2>{item?.title}</h2>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

@@ -1,17 +1,28 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./Wishlistlar.css";
 import { getwishlist, removefromwishlist, addtocart } from "../../service";
-import { DataContext } from "../../App";
+
 import { toast } from "react-toastify";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { FaShoppingCart } from "react-icons/fa";
 import { IoStar } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import { DataContext } from "../../context/DataContext";
 
 function Wishlist() {
   const { token, refreshCartCount } = useContext(DataContext);
   const [wishlist, setWishlist] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (!token) return;
+    
+    getwishlist(token).then((data) => {
+      const items = Array.isArray(data) ? data : [];
+      setWishlist(items);
+      setLoading(false);
+    });
+  }, [token]);
 
   const fetchWishlist = () => {
     if (!token) { setLoading(false); return; }
@@ -21,8 +32,6 @@ function Wishlist() {
       setLoading(false);
     });
   };
-
-  useEffect(() => { fetchWishlist(); }, [token]);
 
   const handleRemove = (productId) => {
     if (!token) { toast.error("Tizimga kiring!"); return; }

@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/home/Home";
 import Navbar from "./components/navbar/Navbar";
@@ -8,6 +8,7 @@ import Register from "./pages/register/Register";
 
 import Productdetail from "./pages/productdetail/Productdetail";
 import Wishlist from "./pages/wishlist/Wishlist";
+import Category from "./pages/category/Category";
 
 import Cart from "./pages/cart/Cart";
 import Checkout from "./pages/checkout/Checkout";
@@ -20,8 +21,7 @@ import {
   getwishlist,
 } from "./service";
 import { ToastContainer } from "react-toastify";
-
-export const DataContext = createContext();
+import { DataContext } from "./context/DataContext";
 
 function App() {
   const [categoryData, setcategoryData] = useState();
@@ -33,24 +33,26 @@ function App() {
   );
 
   useEffect(() => {
-    getcategory().then((data) => setcategoryData(data));
-    getproductlist().then((item) => setproductdata(item));
+    getcategory().then((data) => setcategoryData(data?.value || data));
+    getproductlist().then((item) => setproductdata(item?.value || item));
   }, [token]);
 
   // Cart count ni token o'zgarganda va sahifa yuklanganda yangilash
   useEffect(() => {
     if (token) {
-      getcartitems(token).then((data) => {
-        const items = data?.cart_items || (Array.isArray(data) ? data : []);
-        setCartCount(items.length);
+      Promise.all([
+        getcartitems(token).then((data) => {
+          const items = data?.cart_items || (Array.isArray(data) ? data : []);
+          return items.length;
+        }),
+        getwishlist(token).then((data) => {
+          const items = Array.isArray(data) ? data : [];
+          return items.length;
+        })
+      ]).then(([cartLen, wishlistLen]) => {
+        setCartCount(cartLen);
+        setWishlistCount(wishlistLen);
       });
-      getwishlist(token).then((data) => {
-        const items = Array.isArray(data) ? data : [];
-        setWishlistCount(items.length);
-      });
-    } else {
-      setCartCount(0);
-      setWishlistCount(0);
     }
   }, [token]);
 
@@ -95,6 +97,7 @@ function App() {
             <Route path="/signup" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/productdetail/:id" element={<Productdetail />} />
+            <Route path="/category/:id" element={<Category />} />
             <Route path="/wishlist" element={<Wishlist />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/checkout" element={<Checkout />} />

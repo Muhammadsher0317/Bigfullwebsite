@@ -1,24 +1,30 @@
 import { CiHeart } from "react-icons/ci";
+import { FaHeart } from "react-icons/fa";
 import { IoEyeOutline, IoStar } from "react-icons/io5";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { baseUrl, addtowishlist } from "../../service";
 import "./Cardsonce.css";
-import { useContext } from "react";
-import { DataContext } from "../../App";
+import { useContext, useState } from "react";
+
 import { toast } from "react-toastify";
+import { DataContext } from "../../context/DataContext";
 
 function Cardslarone({ item, setsliderbuton, setSelectedProduct }) {
   const { token } = useContext(DataContext);
+  const navigate = useNavigate();
+  const [isLiked, setIsLiked] = useState(false);
 
   const handleWishlist = (e) => {
     e.preventDefault();
     e.stopPropagation();
     if (!token) {
       toast.error("Iltimos avval tizimga kiring!");
+      navigate("/register");
       return;
     }
+    setIsLiked(!isLiked);
     addtowishlist(token, item?.id).then(() => {
-      toast.success("Wishlistga qo'shildi!");
+      toast.success("Yoqtirilgan qatorga qo'shildi!");
     });
   };
 
@@ -28,8 +34,8 @@ function Cardslarone({ item, setsliderbuton, setSelectedProduct }) {
         <div className="sliderboxs">
           <div className="sliderboxtop">
             <div className="rotateplace">
-              <div className="rotetarte" onClick={handleWishlist}>
-                <CiHeart />
+              <div className="rotetarte" onClick={handleWishlist} style={{ cursor: "pointer" }}>
+                {isLiked ? <FaHeart size={28} color="red" /> : <CiHeart size={28} color="black" />}
               </div>
               <div className="rotetarte">
                 <IoEyeOutline />
@@ -67,7 +73,11 @@ function Cardslarone({ item, setsliderbuton, setSelectedProduct }) {
                 </div>
                 <div className="starlsaerda">
                   <div className="stars">
-                    <IoStar /><IoStar /><IoStar /><IoStar /><IoStar />
+                    <IoStar />
+                    <IoStar />
+                    <IoStar />
+                    <IoStar />
+                    <IoStar />
                   </div>
                   <div className="p">{item?.stars}</div>
                 </div>
